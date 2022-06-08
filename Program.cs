@@ -1,12 +1,16 @@
-﻿using System;
+﻿using Balta.ContentContext;
+using System;
 
-namespace ProjetoHandsInTheDough
+namespace Balta
 {
-	internal class Program
+	public class Program
 	{
 		static void Main(string[] args)
 		{
 			Console.WriteLine("Hello World!");
+
+			var course = new Course();
+
 		}
 	}
 }

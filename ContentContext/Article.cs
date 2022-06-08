@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Balta.ContentContext
 {
-  internal class Article
+  public class Article
   {
   }
 }
