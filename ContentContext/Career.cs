@@ -6,6 +6,12 @@ namespace Balta.ContentContext
 {
   public class Career : Content
   {
-    public int Courses { get; set; }
+    public Career()
+    {
+      Items = new List<CareerItem>();
+    }
+    public List<CareerItem> Items { get; set; }
+    public int TotalCourses => Items.Count;
+    //expression body
   }
 }
