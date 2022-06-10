@@ -8,10 +8,13 @@ namespace Balta.ContentContext
   {
     public CareerItem(int order, string title, string description, Course course)
     {
+      if (course == null)
+        throw new Exception("Null not available");
+
       Order = order;
       Title = title;
       Description = description;
-      Course = course;
+      Course = course;     
     }
 
     public int Order { get; set; }

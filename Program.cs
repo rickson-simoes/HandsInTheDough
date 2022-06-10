@@ -23,9 +23,13 @@ namespace Balta
       Console.WriteLine("================= Curso =================");
 
       var courses = new List<Course>();
-			courses.Add(new Course("OOP", "Curse-Orientacao-Objetos"));
-			courses.Add(new Course("C#", "Curse-Csharp"));
-			courses.Add(new Course(".NET", "Curse-Dot-net"));
+			var courseOOP = new Course("OOP", "Curse-Orientacao-Objetos");
+			var courseCSharp = new Course("C#", "Curse-Csharp");
+			var courseDotNet = new Course(".NET", "Curse-Dot-net");
+
+			courses.Add(courseOOP);
+			courses.Add(courseCSharp);
+			courses.Add(courseDotNet);
 
       foreach (var course in courses)
       {
@@ -35,30 +39,27 @@ namespace Balta
       Console.WriteLine("================= Carreira -> utilizando order do LINQ =================");
 
       var careers = new List<Career>();
-			var career = new Career("Backend C#", "Backend-CSharp");
+			var careerDotNet = new Career("Especialista .NET", "especialista-dotnet");
 
-			var careersItem2 = new CareerItem(2, "aprenda.net", "", null);
-			var careersItem = new CareerItem(1, "aprenda react", "", null);
-			var careersItem6 = new CareerItem(6, "aprenda Angular", "", null);
-			var careersItem3 = new CareerItem(3, "aprenda Vuejs", "", null);
-			var careersItem5 = new CareerItem(5, "aprenda Java", "", null);
+			var careersItem2 = new CareerItem(2, "aprenda oop", "", courseOOP);
+			var careersItem = new CareerItem(1, "comece por aqui", "", courseCSharp);
+			var careersItem3 = new CareerItem(3, "aprenda .net", "", courseDotNet);
 
-			career.Items.Add(careersItem2);
-			career.Items.Add(careersItem);
-			career.Items.Add(careersItem6);
-			career.Items.Add(careersItem3);
-			career.Items.Add(careersItem5);
+			careerDotNet.Items.Add(careersItem2);
+			careerDotNet.Items.Add(careersItem);
+			careerDotNet.Items.Add(careersItem3);
 
-			careers.Add(career);
+			careers.Add(careerDotNet);
 
       foreach (var careerItems in careers)
       {
         Console.WriteLine($"{careerItems.Title}");
 
-        foreach (var careerLists in careerItems.Items.OrderBy( item => item.Order))
-        {
+        foreach (var careerLists in careerItems.Items.OrderBy(item => item.Order))
+        {					
           Console.WriteLine($"{careerLists.Order} - {careerLists.Title}");
-
+          Console.WriteLine($"{careerLists.Course.Title}");
+					Console.WriteLine($"{careerLists.Course.Level}");
 				}
       }
 
