@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Balta.ContentContext
+﻿namespace Balta.ContentContext
 {
   public class Article : Content
   {

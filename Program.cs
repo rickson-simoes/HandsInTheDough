@@ -1,4 +1,5 @@
 ﻿using Balta.ContentContext;
+using Balta.NotificationContext;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +32,14 @@ namespace Balta
 			courses.Add(courseCSharp);
 			courses.Add(courseDotNet);
 
-      foreach (var course in courses)
+			// PAREI AQUI ONDE FIZ O PROCESSO DE NOTIFICATIONCONTEXT, ONDE UM VAI HERDANDO DO OUTRO TENDO ACESSO AOS DADOS E ETC... É BOM OLHAR NOVAMENTE O VIDEO SÓ PARA TER UMA BASE DO QUE FOI FEITO, MAS É BEM DE BOA.
+
+			// O MÉTODO 'ADD' do courseOOP é do Notifiable.cs de dentro de NotificationContext
+
+			//courseOOP.Add(new Notification("a", "asdas"));
+
+
+			foreach (var course in courses)
       {
         Console.WriteLine($"{course.Id}, {course.Title}, {course.Url}");
         Console.WriteLine("------");
