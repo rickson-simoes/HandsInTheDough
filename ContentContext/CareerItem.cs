@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Balta.NotificationContext;
 
 namespace Balta.ContentContext
 {
@@ -9,7 +10,7 @@ namespace Balta.ContentContext
     public CareerItem(int order, string title, string description, Course course)
     {
       if (course == null)
-        throw new Exception("Null not available");
+        AddNotification(new Notification("Null Exception","Null not available, invalid Course"));
 
       Order = order;
       Title = title;

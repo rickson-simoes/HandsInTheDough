@@ -25,18 +25,14 @@ namespace Balta
 
       var courses = new List<Course>();
 			var courseOOP = new Course("OOP", "Curse-Orientacao-Objetos");
+			courseOOP.Level = ContentContext.Enums.EContentLevel.Advanced;
+
 			var courseCSharp = new Course("C#", "Curse-Csharp");
-			var courseDotNet = new Course(".NET", "Curse-Dot-net");
+			var courseAspNet = new Course("Asp NET", "Curse-Asp-net");
 
 			courses.Add(courseOOP);
 			courses.Add(courseCSharp);
-			courses.Add(courseDotNet);
-
-			// PAREI AQUI ONDE FIZ O PROCESSO DE NOTIFICATIONCONTEXT, ONDE UM VAI HERDANDO DO OUTRO TENDO ACESSO AOS DADOS E ETC... É BOM OLHAR NOVAMENTE O VIDEO SÓ PARA TER UMA BASE DO QUE FOI FEITO, MAS É BEM DE BOA.
-
-			// O MÉTODO 'ADD' do courseOOP é do Notifiable.cs de dentro de NotificationContext
-
-			//courseOOP.Add(new Notification("a", "asdas"));
+			courses.Add(courseAspNet);
 
 
 			foreach (var course in courses)
@@ -51,7 +47,7 @@ namespace Balta
 
 			var careersItem2 = new CareerItem(2, "aprenda oop", "", courseOOP);
 			var careersItem = new CareerItem(1, "comece por aqui", "", courseCSharp);
-			var careersItem3 = new CareerItem(3, "aprenda .net", "", courseDotNet);
+			var careersItem3 = new CareerItem(3, "aprenda asp net", "", null);
 
 			careerDotNet.Items.Add(careersItem2);
 			careerDotNet.Items.Add(careersItem);
@@ -66,8 +62,13 @@ namespace Balta
         foreach (var careerLists in careerItems.Items.OrderBy(item => item.Order))
         {					
           Console.WriteLine($"{careerLists.Order} - {careerLists.Title}");
-          Console.WriteLine($"{careerLists.Course.Title}");
-					Console.WriteLine($"{careerLists.Course.Level}");
+          Console.WriteLine($"{careerLists.Course?.Title}");
+					Console.WriteLine($"{careerLists.Course?.Level}");
+
+					foreach (var notification in careerLists.Notifications)
+          {
+						Console.WriteLine($"{notification.Property} - {notification.Message}");
+					}
 				}
       }
 
